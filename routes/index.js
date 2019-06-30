@@ -16,7 +16,7 @@ router.post("/api", (req, res) => {
                   "Data de nascimento: "+content.dataNasc+"\n"+
                   "Conhecimentos: "+content.conhecimentos+"\n";
 
-  fetch("https://hooks.slack.com/services/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", {
+  fetch(/* curl */, {
     body: "{\"text\":\"" + message + "\"}",
     headers: {
       "Content-Type": "application/json"
