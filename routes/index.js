@@ -60,14 +60,34 @@ router.post("api/contato", (req, res) =>{
                   "Assunto: "+content.subject;
 
   fetch(/* curl */, {
-    body: "{\"text\":\"" + message + "\"}",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    method: "post"
+      body: "{\"text\":\"" + message + "\"}",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "post"
+    });
+
+    res.send();
   });
 
-  res.send();
+
+
+  router.post("api/consultor", (req, res) =>{
+    const content = req.body;
+    const message = "Nome: "+content.nome+"\n"+
+                    "Telefone: "+content.telefone+"\n"+
+                    "Data de nascimento: "+content.dataNasc+"\n"
+                    "Conhecimento: "+content.conhecimentos;
+  
+    fetch(/* curl */, {
+        body: "{\"text\":\"" + message + "\"}",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "post"
+      });
+
+    res.send();        
 })
 
 module.exports = router;
